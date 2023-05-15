@@ -19,7 +19,6 @@ export default createGlobalStyle`
         font-size: 16px;
         outline: none
     };
-    
 
     a {
         text-decoration: none;
