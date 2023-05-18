@@ -1,32 +1,40 @@
-import { Container, Links } from "./styles";
-import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
-import { Section } from '../../components/Section';
-import { Tag } from '../../components/Tag';
-import { ButtonText } from '../../components/ButtonText';
+import { Container, Links, Content } from "./styles";
+import { Header } from "../../components/Header";
+import { Button } from "../../components/Button";
+import { Section } from "../../components/Section";
+import { Tag } from "../../components/Tag";
+import { ButtonText } from "../../components/ButtonText";
 
 export function Details() {
   return (
     <Container>
-      <Header/>
+      <Header />
+      <main>
+        <Content>
+          <ButtonText title="Excluir Nota" />
+          <h1>Introdução ao React</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed cumque molestias vero, necessitatibus omnis aliquam repudiandae unde labore illum maxime repellat qui pariatur! Corrupti, perspiciatis porro. Odit corrupti voluptate laborum?
 
-      <ButtonText title="Excluir Nota"/>
+          </p>
 
-      <Section title="Links úteis">
-        <Links>
-       
-        <li> <a href="">link 1</a> </li>
-         
-        </Links>
-      </Section>
+          <Section title="Links úteis">
+            <Links>
+              <li>
+                {" "}
+                <a href="">link 1</a>{" "}
+              </li>
+            </Links>
+          </Section>
 
-      <Section title="Marcadores">
-        <Tag title="express"/>
-        <Tag title="node"/>
-      </Section>
+          <Section title="Marcadores">
+            <Tag title="express" />
+            <Tag title="node" />
+          </Section>
 
-      
-      <Button title="back"/>
+          <Button title="back" />
+        </Content>
+      </main>
     </Container>
   );
 }
