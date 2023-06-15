@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme, isNew }) =>
     isNew ? "trasparent" : theme.COLORS.BACKGROUND_900};
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  color: ${({ theme }) => theme.COLORS.WHITE};
 
   border: ${({ theme, isNew }) =>
     isNew ? "1px dashed" : theme.COLORS.GRAY_300};

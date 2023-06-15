@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   grid-area: header;
@@ -7,50 +8,48 @@ export const Container = styled.header`
 
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
+  border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
   display: flex;
   justify-content: space-between;
-  
-  padding:  0 80px;
 
-  `;
+  padding: 0 80px;
+`;
 
-  export const Profile = styled.div`
+export const Profile = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  > img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+
+  > div {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-left: 16px;
+    line-height: 24px;
 
-    > img {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
+    span {
+      font-size: 14px;
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-      margin-left: 16px;
-      line-height: 24px;
-
-      span {
-        font-size: 14px;
-        color: ${({theme}) => theme.COLORS.GRAY_100};
-      }
-
-      strong {
-        font-size: 18px;
-        color: ${({theme}) => theme.COLORS.WHITE};
-      }
+    strong {
+      font-size: 18px;
+      color: ${({ theme }) => theme.COLORS.WHITE};
     }
+  }
+`;
 
-  `;
+export const Logout = styled.button`
+  border: none;
+  background: none;
 
-  export const Logout = styled.button`
-    border:none;
-    background:none;
-
-    > svg {
-      color: ${({theme}) => theme.COLORS.GRAY_300};
-      font-size: 24px;
-    }
-  `;
+  > svg {
+    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    font-size: 24px;
+  }
+`;
