@@ -42,7 +42,19 @@ export function New() {
         setTags(prevState => prevState.filter(tag => tag !== deletedTag));
     }
 
-    async function handleNewNote() {    
+    async function handleNewNote() {  
+        if (!title) {
+            return alert("Título não foi adicionado, clique em adicionar!");
+        }
+        
+        if (newTag) {
+            return alert("Tag não foi adicionada, clique em adicionar!");
+        }
+
+        if (newLink) {
+            return alert("Link não foi adicionado, clique em adicionar!");
+        }
+
         await api.post("/notes", {
             title,
             description,
