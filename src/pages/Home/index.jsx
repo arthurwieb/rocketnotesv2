@@ -39,7 +39,7 @@ export function Home() {
             setTags(response.data);
         }
         fetchTags()
-    })
+    }, [])
     return (
         <Container>
             <Brand>
