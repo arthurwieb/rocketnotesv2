@@ -5,8 +5,9 @@ import { Textarea } from '../../components/Textarea';
 import { NoteItem } from '../../components/NoteItem';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
+import { ButtonText } from '../../components/ButtonText';
 import { Container, Form } from "./styles"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from 'react-router-dom';
@@ -29,6 +30,11 @@ export function New() {
         setNewLink("");
     }
 
+    function handleBack() {
+        navigate(-1);
+    }
+
+
     function handleRemoveLink(deletedLink) {
         setLinks(prevState => prevState.filter(link => link !== deletedLink));
     }
@@ -42,11 +48,11 @@ export function New() {
         setTags(prevState => prevState.filter(tag => tag !== deletedTag));
     }
 
-    async function handleNewNote() {  
+    async function handleNewNote() {
         if (!title) {
             return alert("Título não foi adicionado, clique em adicionar!");
         }
-        
+
         if (newTag) {
             return alert("Tag não foi adicionada, clique em adicionar!");
         }
@@ -63,23 +69,21 @@ export function New() {
         });
 
         alert("Nota criada com sucesso!");
-        navigate("/");
+        navigate(-1);
     }
 
-    
+
 
 
     return (
         <Container>
             <Header />
-            
+
             <main>
                 <Form>
                     <header>
                         <h1>Criar nota</h1>
-                        <Link to="/">
-                            Voltar
-                        </Link>
+                        <ButtonText title={"Voltar"} onClick={handleBack} />
                     </header>
                     <Input
                         placeholder="Titulo"
@@ -89,7 +93,7 @@ export function New() {
                         placeholder="Obs"
                         onChange={e => setDescription(e.target.value)}
                     />
-                    
+
                     <Section title="Links úteis">
                         {
                             links.map((link, index) => (
@@ -120,7 +124,7 @@ export function New() {
                                     />
                                 ))
                             }
-                            
+
                             <NoteItem
                                 isNew
                                 placeholder="Nova tag"
@@ -137,6 +141,6 @@ export function New() {
 
                 </Form>
             </main>
-        </Container>
+        </Container >
     )
 }

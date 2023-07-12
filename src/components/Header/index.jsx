@@ -1,4 +1,4 @@
-import {RiShutDownLine} from 'react-icons/ri';
+import { RiShutDownLine } from 'react-icons/ri';
 import { Container, Profile, Logout } from './styles';
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
@@ -10,7 +10,7 @@ export function Header() {
     return (
         <Container>
             <Profile to="/profile">
-                <img src={avatarUrl} alt={user.name}/>
+                <img src={avatarUrl} alt={user.name} />
                 <div>
                     <span>Bem-vindo</span>
                     <strong>{user.name}</strong>
@@ -18,7 +18,7 @@ export function Header() {
             </Profile>
 
             <Logout onClick={signOut}>
-                <RiShutDownLine/>
+                <RiShutDownLine />
             </Logout>
 
         </Container>

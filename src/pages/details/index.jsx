@@ -4,37 +4,79 @@ import { Button } from "../../components/Button";
 import { Section } from "../../components/Section";
 import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export function Details() {
-  return (
-    <Container>
-      <Header />
-      <main>
-        <Content>
-          <ButtonText title="Excluir Nota" />
-          <h1>Introdução ao React</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed cumque molestias vero, necessitatibus omnis aliquam repudiandae unde labore illum maxime repellat qui pariatur! Corrupti, perspiciatis porro. Odit corrupti voluptate laborum?
+    const [data, setData] = useState({});
 
-          </p>
+    const params = useParams();
+    const navigate = useNavigate();
 
-          <Section title="Links úteis">
-            <Links>
-              <li>
-                {" "}
-                <a href="">link 1</a>{" "}
-              </li>
-            </Links>
-          </Section>
+    function handleBack() {
+        navigate(-1);
+    }
 
-          <Section title="Marcadores">
-            <Tag title="express" />
-            <Tag title="node" />
-          </Section>
+    async function handleRemove() {
+        const confirm = window.confirm("Tem certeza que deseja excluir?");
+        if (confirm) {
+            await api.delete(`/notes/${params.id}`);
+            handleBack()
+        }
+    }
 
-          <Button title="back" />
-        </Content>
-      </main>
-    </Container>
-  );
+
+    useEffect(() => {
+        async function fetchNotes() {
+            const response = await api.get(`/notes/${params.id}`);
+            setData(response.data);
+        }
+
+        fetchNotes();
+    }, []);
+
+    return (
+        <Container>
+            <Header />
+            {data && (
+                <main>
+                    <Content>
+                        <ButtonText
+                            title="Excluir Nota"
+                            onClick={handleRemove}
+                        />
+                        <h1>{data.title}</h1>
+                        <p>{data.description}</p>
+
+                        {data.links && (
+                            <Section title="Links úteis">
+                                <Links>
+                                    {data.links.map((link) => (
+                                        <li key={String(data.id)}>
+                                            <a href={link.url} target="_blank">{link.url}</a>
+                                        </li>
+                                    ))}
+                                </Links>
+                            </Section>
+                        )}
+
+                        {data.tags && (
+                            <Section title="Marcadores">
+                                {
+                                    data.tags.map(tag => (
+                                        <Tag
+                                            title={tag.name}
+                                            key={String(tag.id)}
+                                        />
+                                    ))
+                                }
+                            </Section>
+                        )}
+                        <Button title="back" onClick={handleBack} />
+                    </Content>
+                </main>
+            )}
+        </Container>
+    );
 }

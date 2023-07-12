@@ -7,6 +7,7 @@ import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
     const [search, setSearch] = useState("");
@@ -14,7 +15,13 @@ export function Home() {
     const [tagsSelected, setTagsSelected] = useState([]);
     const [notes, setNotes] = useState([]);
 
+    const navigate = useNavigate();
+
+
     function handleTagSelected(tagName) {
+        if (tagName === "all") {
+            return setTagsSelected([]);
+        }
         const alreadySelected = tagsSelected.includes(tagName);
         if (alreadySelected) {
             const filteredTags = tagsSelected.filter(item => item !== tagName);
@@ -23,7 +30,11 @@ export function Home() {
             setTagsSelected(prevState => [...prevState, tagName]);
         }
     }
+    function handleDetails(id) {
+        navigate(`/details/${id}`);
+    }
 
+    //fetchNotes
     useEffect(() => {
         async function fetchNotes() {
             const response = await api.get(`/notes?title=${search}&tags=${tagsSelected}`)
@@ -33,6 +44,7 @@ export function Home() {
     }, [tagsSelected, search])
 
 
+    //fetchTags
     useEffect(() => {
         async function fetchTags() {
             const response = await api.get('/tags');           
@@ -71,7 +83,7 @@ export function Home() {
 
             <Search>
                 <Input
-                    onChange={() => setSearch(event.target.value)}
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Pesquisar"
                 />
             </Search>
@@ -83,6 +95,7 @@ export function Home() {
                             <Note
                                 key={String(note.id)}
                                 data={note}
+                                onClick={() => handleDetails(note.id)}
                             />
                         ))
                     }
