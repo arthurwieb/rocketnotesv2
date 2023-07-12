@@ -1,4 +1,4 @@
-import { FiPlus} from 'react-icons/fi';
+import { FiPlus } from 'react-icons/fi';
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
@@ -47,7 +47,7 @@ export function Home() {
     //fetchTags
     useEffect(() => {
         async function fetchTags() {
-            const response = await api.get('/tags');           
+            const response = await api.get('/tags');
             setTags(response.data);
         }
         fetchTags()
@@ -55,11 +55,11 @@ export function Home() {
     return (
         <Container>
             <Brand>
-            <h1>RocketNotes</h1>
+                <h1>RocketNotes</h1>
             </Brand>
 
             <Header />
-            
+
             <Menu>
                 <li>
                     <ButtonText
