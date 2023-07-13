@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  background-color: ${({ theme }) => theme.COLORS.DARK_PURPLE};
   border: none;
   border-radius: 10px;
 
@@ -21,5 +21,21 @@ export const Container = styled.button`
     width: 100%;
     display: flex;
     margin-top: 24px;
+  }
+
+  > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    text-align: justify;
+
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
   }
 `;

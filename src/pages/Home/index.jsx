@@ -1,10 +1,11 @@
-import { FiPlus} from 'react-icons/fi';
-import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
+import { FiPlus } from 'react-icons/fi';
+import { Container, Brand, Menu, Search, Content, NewNote, AddMenu } from "./styles";
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { Note } from '../../components/Note';
 import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
+import { Button } from '../../components/Button';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
@@ -47,20 +48,23 @@ export function Home() {
     //fetchTags
     useEffect(() => {
         async function fetchTags() {
-            const response = await api.get('/tags');           
+            const response = await api.get('/tags');
             setTags(response.data);
         }
         fetchTags()
     }, [])
     return (
         <Container>
-            <Brand>
-            <h1>RocketNotes</h1>
-            </Brand>
+            {/* Está agora no header <Brand>
+                <h1>RocketMovies</h1>
+            </Brand> */}
 
-            <Header />
-            
-            <Menu>
+            <Header
+                onChange={e => setSearch(e.target.value)}
+            />
+
+            {/* isso será removido, a pagina ocupará toda tela */}
+            {/* <Menu>
                 <li>
                     <ButtonText
                         title="Todos"
@@ -79,35 +83,54 @@ export function Home() {
                         </li>
                     ))
                 }
-            </Menu>
+            </Menu> */}
 
-            <Search>
+            {/* <Search>
                 <Input
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Pesquisar"
                 />
-            </Search>
+            </Search> */}
+            <AddMenu>
+                <h1>Meus filmes</h1>
+                {/* <Button title={'Adicionar filme'} /> */}
+                <NewNote to="/new">
+                    <FiPlus />
+                    Adicionar filme
+                </NewNote>
+            </AddMenu>
 
             <Content>
-                <Section title="Minhas notas">
-                    {
-                        notes.map(note => (
-                            <Note
-                                key={String(note.id)}
-                                data={note}
-                                onClick={() => handleDetails(note.id)}
-                            />
-                        ))
-                    }
-
-                </Section>
+                {
+                    notes.map(note => (
+                        <Note
+                            key={String(note.id)}
+                            data={note}
+                            onClick={() => handleDetails(note.id)}
+                        />
+                    ))
+                }
+                {
+                    notes.map(note => (
+                        <Note
+                            key={String(note.id)}
+                            data={note}
+                            onClick={() => handleDetails(note.id)}
+                        />
+                    ))
+                }
+                {
+                    notes.map(note => (
+                        <Note
+                            key={String(note.id)}
+                            data={note}
+                            onClick={() => handleDetails(note.id)}
+                        />
+                    ))
+                }
             </Content>
 
-            <NewNote to="/new">
-                <FiPlus />
-                Criar nota
 
-            </NewNote>
-        </Container>
+        </Container >
     );
 }

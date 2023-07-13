@@ -7,20 +7,27 @@ export const Container = styled.div`
     width: 100%;
     height: 114px;
 
-    background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    background: ${({ theme }) => theme.COLORS.DARK_PURPLE};
 
     display: flex;
     align-items: center;
     padding: 0 124px;
 
     svg {
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
+      color: ${({ theme }) => theme.COLORS.ORANGE};
       font-size: 24px;
     }
 
     button {
+      display: flex;
+      align-items: center;
+
       background: none;
       border: none;
+      > span {
+        font-size: 16px;
+        color: ${({ theme }) => theme.COLORS.ORANGE};
+      }
     }
   }
 `;

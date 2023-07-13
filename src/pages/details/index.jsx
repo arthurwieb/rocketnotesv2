@@ -8,6 +8,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
+/*
+Aqui provavelmente ja temos o objeto inteiro da nota, então será fácil de trazer os dados, fazer isso amanhã
+*/
 export function Details() {
     const [data, setData] = useState({});
 

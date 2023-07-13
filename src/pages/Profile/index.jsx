@@ -52,7 +52,8 @@ export function Profile() {
         <Container>
             <header>
                 <button type="button" onClick={handleBack}>
-                    <FiArrowLeft size={24} />
+                    <FiArrowLeft size={16} />
+                    <span>Voltar</span>
                 </button>
 
             </header>
