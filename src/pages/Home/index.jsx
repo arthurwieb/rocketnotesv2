@@ -55,42 +55,11 @@ export function Home() {
     }, [])
     return (
         <Container>
-            {/* Está agora no header <Brand>
-                <h1>RocketMovies</h1>
-            </Brand> */}
 
             <Header
                 onChange={e => setSearch(e.target.value)}
             />
 
-            {/* isso será removido, a pagina ocupará toda tela */}
-            {/* <Menu>
-                <li>
-                    <ButtonText
-                        title="Todos"
-                        onClick={() => handleTagSelected("all")}
-                        isActive={tagsSelected.length === 0}
-                    />
-                </li>
-                {
-                    tags && tags.map(tag => (
-                        <li key={String(tag.id)}>
-                            <ButtonText
-                                title={tag.name}
-                                onClick={() => handleTagSelected(tag.name)}
-                                isActive={tagsSelected.includes(tag.name)}
-                            />
-                        </li>
-                    ))
-                }
-            </Menu> */}
-
-            {/* <Search>
-                <Input
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Pesquisar"
-                />
-            </Search> */}
             <AddMenu>
                 <h1>Meus filmes</h1>
                 {/* <Button title={'Adicionar filme'} /> */}
@@ -101,24 +70,6 @@ export function Home() {
             </AddMenu>
 
             <Content>
-                {
-                    notes.map(note => (
-                        <Note
-                            key={String(note.id)}
-                            data={note}
-                            onClick={() => handleDetails(note.id)}
-                        />
-                    ))
-                }
-                {
-                    notes.map(note => (
-                        <Note
-                            key={String(note.id)}
-                            data={note}
-                            onClick={() => handleDetails(note.id)}
-                        />
-                    ))
-                }
                 {
                     notes.map(note => (
                         <Note

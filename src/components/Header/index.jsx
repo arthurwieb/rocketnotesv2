@@ -2,10 +2,17 @@ import { Container, Profile, Logout, SearchHeader, Brand } from './styles';
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import { Input } from '../Input';
+import { useNavigate } from 'react-router-dom';
 
 export function Header({ onChange }) {
     const { signOut, user } = useAuth();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+    const navigate = useNavigate();
+
+    function handleProfile() {
+        navigate('/profile');
+
+    }
 
 
     return (
@@ -22,18 +29,19 @@ export function Header({ onChange }) {
                 />
             </SearchHeader>
 
-            <Profile to="/profile">
-
+            <div id="profile-container">
                 <div>
-                    {/* <span>Bem-vindo</span> */}
-                    <strong>{user.name}</strong>
+                    <strong onClick={handleProfile}>{user.name}</strong>
                     <Logout onClick={signOut}>
                         <p>Sair</p>
                     </Logout>
                 </div>
-                <img src={avatarUrl} alt={user.name} />
+                <Profile to="/profile">
+                    <img src={avatarUrl} alt={user.name} />
+                </Profile>
 
-            </Profile>
+            </div>
+
 
         </Container>
     );

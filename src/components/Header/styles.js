@@ -14,6 +14,17 @@ export const Container = styled.header`
   justify-content: flex-end;
 
   padding: 0 80px;
+  > #profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+    }
+  }
 `;
 
 export const Brand = styled.div`
