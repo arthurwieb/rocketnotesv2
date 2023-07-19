@@ -56,6 +56,7 @@ export const AddMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 0 130px;
 
   > button {
@@ -76,22 +77,31 @@ export const AddMenu = styled.div`
 export const Content = styled.div`
   grid-area: content;
 
-  margin-top: 40px;
-  padding: 0 130px;
-  overflow-y: auto;
+  > main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
-  ::-webkit-scrollbar {
-    width: 8px;
+    margin-right: 10px;
   }
 
-  ::-webkit-scrollbar-track {
-    background: none;
-  }
+  @media (min-width: 1000px) {
+    margin: 0 106px 40px 123px;
+    overflow-y: auto;
 
-  ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.COLORS.ORANGE};
-    border-radius: 8px;
-    border: none;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS.ORANGE};
+      border-radius: 8px;
+      border: none;
+    }
   }
 `;
 

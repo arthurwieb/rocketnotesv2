@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import { useAuth } from '../../hooks/auth';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Container, Form, Background } from './styles';
@@ -12,13 +12,13 @@ export function SignIn() {
     const { signIn } = useAuth();
 
     function handleSignIn() {
-        signIn({email, password});
+        signIn({ email, password });
     }
     return (
         <Container>
             <Form>
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para links</p>
+                <h1>Rocket Movies</h1>
+                <p>Aplicação para acompanhar tudo que assistir.</p>
 
                 <h2>Faça seu login</h2>
                 <Input
@@ -35,15 +35,15 @@ export function SignIn() {
                     onChange={e => setPassword(e.target.value)}
                 />
 
-                <Button title="Entrar" onClick={handleSignIn}/>
+                <Button title="Entrar" onClick={handleSignIn} />
 
                 <Link to="/register">
                     Criar conta
                 </Link>
-                
+
             </Form>
 
-            <Background/>
+            <Background />
 
         </Container>
     );

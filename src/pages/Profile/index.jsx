@@ -55,7 +55,6 @@ export function Profile() {
                     <FiArrowLeft size={16} />
                     <span>Voltar</span>
                 </button>
-
             </header>
 
             <Form>

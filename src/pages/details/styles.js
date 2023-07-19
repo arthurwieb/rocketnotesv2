@@ -10,9 +10,34 @@ export const Container = styled.div`
     "content";
 
   > main {
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 190px;
+
+    padding-right: 10px;
     grid-area: content;
     overflow-y: scroll;
-    padding: 64px 0;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    ::-webkit-scrollbar-track {
+      background: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.COLORS.ORANGE};
+      border-radius: 8px;
+      border: none;
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+      height: 5px;
+    }
   }
 `;
 
@@ -29,15 +54,10 @@ export const Links = styled.ul`
 `;
 
 export const Content = styled.div`
-  max-width: 550px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 
   display: flex;
   flex-direction: column;
-
-  > button:first-child {
-    align-self: flex-end;
-  }
 
   > h1 {
     font-size: 36px;
@@ -48,11 +68,12 @@ export const Content = styled.div`
   > p {
     font-size: 16px;
     margin-top: 16px;
+    margin-bottom: 36px;
     text-align: justify;
   }
 
   #details {
-    margin-bottom: 40px;
+    margin-top: 24px;
   }
 
   > #details .note-detail {
@@ -80,6 +101,11 @@ export const Content = styled.div`
     color: ${({ theme }) => theme.COLORS.ORANGE};
     margin-right: 8px;
   }
+
+  .note-options {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -102,5 +128,22 @@ export const TagsContainer = styled.section`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     font-size: 20px;
     font-weight: 400;
+  }
+`;
+
+export const ButtonBack = styled.button`
+  display: flex;
+  align-items: center;
+
+  background: none;
+  border: none;
+  > span {
+    font-size: 16px;
+    color: ${({ theme }) => theme.COLORS.ORANGE};
+  }
+
+  svg {
+    color: ${({ theme }) => theme.COLORS.ORANGE};
+    font-size: 24px;
   }
 `;

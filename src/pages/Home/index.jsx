@@ -70,15 +70,17 @@ export function Home() {
             </AddMenu>
 
             <Content>
-                {
-                    notes.map(note => (
-                        <Note
-                            key={String(note.id)}
-                            data={note}
-                            onClick={() => handleDetails(note.id)}
-                        />
-                    ))
-                }
+                <main>
+                    {
+                        notes.map(note => (
+                            <Note
+                                key={String(note.id)}
+                                data={note}
+                                onClick={() => handleDetails(note.id)}
+                            />
+                        ))
+                    }
+                </main>
             </Content>
 
 

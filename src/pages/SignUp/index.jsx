@@ -4,6 +4,7 @@ import { Button } from '../../components/Button';
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
+import { ButtonBack } from '../../components/ButtonBack';
 
 import { useState } from 'react';
 
@@ -19,29 +20,33 @@ export function SignUp() {
             return alert("Preencha todos os campos!");
         }
 
-        api.post("/users", {name, password, email}).then(() => {
+        api.post("/users", { name, password, email }).then(() => {
             alert("Conta criada com sucesso!");
             navigate("/");
         }).catch(error => {
-            if(error.response) {
+            if (error.response) {
                 alert(error.response.data.message);
             } else {
                 alert("Erro no cadastro!");
             }
         })
-        
-        console.log(name, password, email);
     }
+
+    function handleBack() {
+        navigate(-1);
+    }
+
     return (
         <Container>
-            <Background/>
+
 
             <Form>
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para links</p>
+                <h1>Rocket Movies</h1>
+                <p>Aplicação para acompanhar tudo que assistir.</p>
+
 
                 <h2>Crie sua conta</h2>
-                 <Input
+                <Input
                     placeholder="Nome"
                     type="text"
                     icon={FiUser}
@@ -62,13 +67,12 @@ export function SignUp() {
                     icon={FiLock}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <Button title='Cadastrar' onClick={handleSignUp}/>
+                <Button title='Cadastrar' onClick={handleSignUp} />
 
-               <Link to="/">
-                    Voltar para o login
-                </Link>
-                
+                <ButtonBack className="voltar-btn" title={'Voltar para o login'} onClick={handleBack} />
+
             </Form>
+            <Background />
 
 
         </Container>

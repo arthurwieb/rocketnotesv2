@@ -13,7 +13,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   text-align: center;
 
@@ -35,6 +35,10 @@ export const Form = styled.form`
   > a {
     margin-top: 124px;
     color: ${({ theme }) => theme.COLORS.ORANGE};
+  }
+
+  .voltar-btn {
+    margin-top: 48px;
   }
 `;
 
