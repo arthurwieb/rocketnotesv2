@@ -4,7 +4,7 @@ import { Input } from '../../components/Input';
 import { Textarea } from '../../components/Textarea';
 import { NoteItem } from '../../components/NoteItem';
 import { Section } from '../../components/Section';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/Buttona';
 import { ButtonText } from '../../components/ButtonText';
 import { Container, Form } from "./styles"
 // import { Link } from "react-router-dom"
