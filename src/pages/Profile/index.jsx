@@ -6,8 +6,7 @@ import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import { Button } from '../../components/Button';
-import { Container, Form, Avatar } from "./styles"
-import { ButtonText } from '../../components/ButtonText';
+import { Container, Form, Avatar } from "./styles";
 
 export function Profile() {
     const { user, updateProfile } = useAuth();

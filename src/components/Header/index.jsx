@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import { Input } from '../Input';
 import { useNavigate } from 'react-router-dom';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Header({ onChange }) {
     const { signOut, user } = useAuth();
@@ -13,7 +14,6 @@ export function Header({ onChange }) {
         navigate('/profile');
 
     }
-
 
     return (
         <Container>
@@ -41,7 +41,6 @@ export function Header({ onChange }) {
                 </Profile>
 
             </div>
-
 
         </Container>
     );
