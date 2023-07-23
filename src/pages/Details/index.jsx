@@ -1,8 +1,8 @@
 import { Container, Links, Content, Avatar, TagsContainer } from "./styles";
 import { Header } from "../../components/Header";
-import { Button } from "../../components/Button";
+// import { Button } from "../../components/Button";
 import { ButtonBack } from "../../components/ButtonBack";
-import { Section } from "../../components/Section";
+// import { Section } from "../../components/Section";
 import { Tag } from "../../components/Tag";
 import { Stars } from "../../components/Stars";
 import { ButtonText } from "../../components/ButtonText";
@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 import { AiOutlineClockCircle } from 'react-icons/ai';
-import { FiArrowLeft } from 'react-icons/fi';
+// import { FiArrowLeft } from 'react-icons/fi';
 
 /*
 Aqui provavelmente ja temos o objeto inteiro da nota, então será fácil de trazer os dados, fazer isso amanhã
