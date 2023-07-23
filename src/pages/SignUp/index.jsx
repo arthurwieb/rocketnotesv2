@@ -19,29 +19,28 @@ export function SignUp() {
             return alert("Preencha todos os campos!");
         }
 
-        api.post("/users", {name, password, email}).then(() => {
+        api.post("/users", { name, password, email }).then(() => {
             alert("Conta criada com sucesso!");
             navigate("/");
         }).catch(error => {
-            if(error.response) {
+            if (error.response) {
                 alert(error.response.data.message);
             } else {
                 alert("Erro no cadastro!");
             }
         })
-        
-        console.log(name, password, email);
+
     }
     return (
         <Container>
-            <Background/>
+            <Background />
 
             <Form>
                 <h1>Rocket Notes</h1>
                 <p>Aplicação para links</p>
 
                 <h2>Crie sua conta</h2>
-                 <Input
+                <Input
                     placeholder="Nome"
                     type="text"
                     icon={FiUser}
@@ -62,12 +61,12 @@ export function SignUp() {
                     icon={FiLock}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <Button title='Cadastrar' onClick={handleSignUp}/>
+                <Button title='Cadastrar' onClick={handleSignUp} />
 
-               <Link to="/">
+                <Link to="/">
                     Voltar para o login
                 </Link>
-                
+
             </Form>
 
 
