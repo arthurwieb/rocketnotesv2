@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 import { AiOutlineClockCircle } from 'react-icons/ai';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 // import { FiArrowLeft } from 'react-icons/fi';
 
 /*
